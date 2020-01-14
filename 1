@@ -1,0 +1,91 @@
+//zadanie 1
+#include <iostream>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+int len = 0;
+
+int main(int argc, char** argv) {
+	
+	  try {
+        while (true) {
+		int *tablica = new int[10000];
+		*tablica = {}	;
+		len++;
+	}
+    } catch (bad_alloc& e) {
+        // std::bad_alloc::what
+        printf("tyle razy: %d\n", len);
+    }
+
+    return 0;
+}
+
+
+//zad 2
+#include <iostream>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+
+int main(int argc, char** argv) {
+	
+int *tablica; 
+int length=0;
+//powyższe może być np. jako zmienne globalne...
+char znak;
+
+int *buff = new int[length];
+do {
+	cout << "podaj wartosc: (aby wyjsc z programu podaj cos innego niz liczbe)"<<endl;
+	cin >> znak;
+	int znaki = (znak-'0')%48;
+	for(int i=0; i<length; i++){   
+		buff[i]=tablica[i]; 
+	}  	 
+tablica = new int[length+1]; 
+for(int i=0; i<length; i++)
+        tablica[i]=buff[i];  
+    tablica[length]=znaki;
+	cout << tablica[length]<<endl;
+	length++;   
+} while (znak>47 && znak<58);
+
+//tablica[length]=Edit1->Text; 
+
+delete []buff; 
+
+delete []tablica; 
+	
+	return 0;
+
+//zad 3
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+void mnozenie (double tab1[], double tab2[], double tab3[]){
+	for(int i = 0; i<20; i++){
+		tab3[i] = tab1[i]*tab2[i];
+		cout <<i<<" tablica 3 = "<< tab3[i]<< endl;
+	}
+}
+
+int main(int argc, char** argv) {
+	double *tab1 = new double [20];
+	double *tab2 = new double [20];
+	double *tab3 = new double [20];
+	
+	for (int i=0; i<20; i++) {
+		tab1[i] = (rand()%100)/2.0;
+		tab2[i] = (rand()%100)/2.0;
+		cout <<i << " tablica 1 = "<< tab1[i] << endl;
+		cout <<i<< " tablica 2 = "<< tab2[i] << endl;
+	}
+	
+	mnozenie(tab1,tab2,tab3);
+	
+	delete tab1;
+	delete tab2;
+	delete tab3;	
+	return 0;
+}
